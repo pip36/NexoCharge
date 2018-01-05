@@ -3,16 +3,16 @@
     <navbar pageTitle="CONTACT"></navbar>
     <div class="container main-content">
       <p> Send us a message using our contact form and we will get back to you within 2 working days. </p>
-      <div class="form">       
+      <form class="form" method="POST" action="https://formspree.io/phil_23@live.co.uk">       
         <div class="field">
           <div class="control">
-            <input class="input" type="text" placeholder="Name">
+            <input class="input" type="text" name="name" placeholder="Name">
           </div>
         </div>
 
         <div class="field">
           <div class="control has-icons-left has-icons-right">
-            <input class="input" type="email" placeholder="Email">
+            <input class="input" type="email" name="email" placeholder="Email">
             <span class="icon is-small is-left">
               <i class="fa fa-envelope"></i>
             </span>
@@ -21,22 +21,22 @@
 
         <div class="field">
           <div class="control">
-            <input class="input" type="text" placeholder="Subject">
+            <input class="input" type="text" name="subject" placeholder="Subject">
           </div>
         </div>
 
         <div class="field">
           <div class="control">
-            <textarea class="textarea" placeholder="Message"></textarea>
+            <textarea class="textarea" name="message" placeholder="Message"></textarea>
           </div>
         </div>
 
         <div class="field">
           <div class="control">
-            <button @click="sendMail()" class="button is-link">Submit</button>
+            <button class="button is-link">Submit</button>
           </div>
         </div>
-      </div>
+      </form>
     </div>
         
     <footer-bar></footer-bar>
