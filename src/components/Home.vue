@@ -52,7 +52,7 @@
 
         <h2 class="title is-2 is-dark-blue"> SOCIAL MEDIA </h2>
 
-        <div class="columns">
+        <div class="media-streams columns">
           <div class="column has-text-centered">
             <h3 class="subtitle is-4"> Twitter </h3>
             <div> 
@@ -71,7 +71,7 @@
               class="fb-page" 
               data-href="https://www.facebook.com/Nexocharge-160202047875438/" 
               data-tabs="timeline" 
-              data-width="300" 
+              data-width="280" 
               data-height="600" 
               data-small-header="false" 
               data-adapt-container-width="true" 
@@ -128,5 +128,9 @@ export default {
 
   .is-dark-blue{
     color:#387299;
+  }
+
+  .media-streams{
+    margin-bottom: 10px;
   }
 </style>

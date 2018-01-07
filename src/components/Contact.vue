@@ -12,7 +12,11 @@
 
         <div class="field">
           <div class="control has-icons-left has-icons-right">
-            <input class="input" type="email" name="email" placeholder="Email">
+            <input 
+              class="input" 
+              type="email" 
+              name="email" 
+              placeholder="Email">
             <span class="icon is-small is-left">
               <i class="fa fa-envelope"></i>
             </span>
