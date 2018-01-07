@@ -10,9 +10,9 @@
                 <h2 slot="name"> Devon Smith </h2>
                 <h3 slot="company-position"> CEO </h3>
                 <img slot="profile-pic" src="/static/profileDS.jpg" class="rounded">
-                <a slot="email" href="mailto:devon.smith@nexocharge.co.uk">
+                <p slot="email">
                   devon.smith@nexocharge.co.uk
-                </a>
+                </p>
                 <p slot="bio"> 
                   As the spearhead of the business I oversee the direction in which we are headed. 
                   With Nexocharge being at the early stage of the business cycle it's essential to 
@@ -30,9 +30,9 @@
                 <h3 slot="company-position"> Chief financial officer </h3>
                 <img slot="profile-pic" src="/static/profilePB.jpg" class="rounded">
 
-                <a slot="email" href="mailto:pbogus.nexocharge@gmail.com">
+                <p slot="email">
                   pbogus.nexocharge@gmail.com
-                </a> 
+                </p> 
 
                 <p slot="bio"> 
                   As the CFO my role is to ensure that our financials are air tight, as well as to 
@@ -48,9 +48,9 @@
                 <h3 slot="company-position"> Advertising and sales liaison director </h3>
                 <img slot="profile-pic" src="/static/profileLE.jpg" class="rounded">
                
-                <a slot="email" href="mailto:eyre.nexocharge@gmail.com">
+                <p slot="email">
                   eyre.nexocharge@gmail.com
-                </a> 
+                </p> 
 
                 <p slot="bio"> 
                   My role is to help manage the creative advertising that will take place in the 
@@ -69,9 +69,9 @@
                 <h3 slot="company-position"> Sales Director </h3>
                 <img slot="profile-pic" src="/static/profileLM.jpg" class="rounded">
             
-                <a slot="email" href="mailto:mcgrath.nexocharge@gmail.com">
+                <p slot="email">
                   mcgrath.nexocharge@gmail.com
-                </a> 
+                </p> 
 
                 <p slot="bio"> 
                   As the head of sales my role consists of pitching to potential clients. My aim is to attract 
@@ -88,9 +88,9 @@
                 <h3 slot="company-position"> Marketing director </h3>
                 <img slot="profile-pic" src="/static/profileML.jpg" class="rounded">
                
-                <a slot="email" href="mailto:lupeikaite.nexocharge@gmail.com">
+                <p slot="email">
                   lupeikaite.nexocharge@gmail.com
-                </a> 
+                </p> 
                
                 <p slot="bio"> 
                   My role as a marketing director is to create material and content for the business. 
@@ -141,5 +141,7 @@ export default {
   .rounded{
     border-radius: 50%;
   }
+
+  
 
 </style>

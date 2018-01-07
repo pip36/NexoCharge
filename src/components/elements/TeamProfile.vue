@@ -8,7 +8,7 @@
       <div class="columns is-vcentered">
         <div class="column">       
           <slot name="profile-pic"></slot>
-          <slot name="email"></slot>
+          <p class="email"><slot name="email"></slot></p>
         </div>
              
         <div class="column bio">     
@@ -37,12 +37,7 @@ export default {
   }
 
   .email{
-    text-decoration: underline;
-    color: #f8f8f8;
-  }
-
-  .email:hover{
-     color:#387299;
+    color: lightblue;
   }
 
   .bio{
