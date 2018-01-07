@@ -2,7 +2,10 @@
   <div class="crowdfunding">
     <navbar pageTitle="CROWDFUNDING"></navbar>
     <div class="container">
-  
+      <div class="coming-soon">
+        <h1 class="title is-2"> Page Under Construction </h1>
+        <p> Please continue browsing and check back soon for updates! </p>
+      </div>
     </div>
     <footer-bar></footer-bar>  
   </div>
@@ -28,5 +31,8 @@ export default {
 </script>
 
 <style scoped>
-
+  .coming-soon{
+    margin-top: 20vh;
+    margin-bottom: 20vh;
+  }
 </style>
