@@ -16,9 +16,6 @@ export default {
     firebase.auth().signInAnonymously().catch(function (error) {
       console.log(error)
     })
-    .then(() => {
-      console.log('logged in')
-    })
   }
 }
 </script>
