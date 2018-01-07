@@ -6,11 +6,19 @@
 
 <script>
 import SocialMedia from '@/helpers/SocialMedia'
+import firebase from 'firebase'
 
 export default {
   name: 'app',
   created () {
     SocialMedia.loadAll()
+
+    firebase.auth().signInAnonymously().catch(function (error) {
+      console.log(error)
+    })
+    .then(() => {
+      console.log('logged in')
+    })
   }
 }
 </script>

@@ -22,13 +22,13 @@
           <div class='form'>
             <div class="field">          
               <div class="control">
-                <input class="input" type="text" placeholder="Name">
+                <input v-model="name" class="input" type="text" placeholder="Name">
               </div>
             </div>
 
             <div class="field">
               <div class="control has-icons-left has-icons-right">
-                <input class="input" type="email" placeholder="Email">
+                <input v-model="email" class="input" type="email" placeholder="Email">
                 <span class="icon is-small is-left">
                   <i class="fa fa-envelope"></i>
                 </span>
@@ -36,7 +36,7 @@
             </div>
 
             <div class="has-text-centered"> 
-              <button class="button is-link">
+              <button @click="addSubscriber()" class="button is-link">
                 <span>Subscribe</span>
               </button>         
             </div>
@@ -58,6 +58,7 @@
 
 <script>
 import SocialLinks from '@/components/elements/SocialLinks'
+import SubscribeForm from '@/helpers/SubscribeForm'
 
 export default {
   name: 'HelloWorld',
@@ -66,12 +67,21 @@ export default {
   },
   data () {
     return {
-
+      name: '',
+      email: ''
     }
   },
   methods: {
     scrollDown () {
       document.querySelector('.double-height').scrollIntoView({behavior: 'smooth', block: 'end'})
+    },
+
+    addSubscriber () {
+      SubscribeForm.hasSubscriber(this.email).then(() => {
+        SubscribeForm.addSubscriber({name: this.name, email: this.email})
+      }).catch((error) => {
+        console.log(error)
+      })
     }
   }
 }
