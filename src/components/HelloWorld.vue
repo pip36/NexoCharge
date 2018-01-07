@@ -22,26 +22,47 @@
           <div class='form'>
             <div class="field">          
               <div class="control">
-                <input v-model="name" class="input" type="text" placeholder="Name">
+                <input 
+                  v-model="name"
+                  v-validate="'required|min:2|max:26'" 
+                  :class="{'input': true, 'is-danger': errors.has('name')}" 
+                  name= "name"
+                  type="text" 
+                  placeholder="Name">
               </div>
+              <p v-show="errors.has('name') " class="help is-danger">{{ errors.first('name') }}</p>
             </div>
 
             <div class="field">
               <div class="control has-icons-left has-icons-right">
-                <input v-model="email" class="input" type="email" placeholder="Email">
+                <input 
+                  v-model="email"
+                  v-validate="'required|email'"
+                  :class="{'input': true, 'is-danger': errors.has('email')}" 
+                  name="email"
+                  type="email" 
+                  placeholder="Email">
                 <span class="icon is-small is-left">
                   <i class="fa fa-envelope"></i>
                 </span>
-              </div>         
+              </div> 
+              <p v-show="errors.has('email') " class="help is-danger">{{ errors.first('email') }}</p>        
             </div>
 
             <div class="has-text-centered"> 
-              <button @click="addSubscriber()" class="button is-link">
+              <button @click="validateBefore(addSubscriber)" class="button is-link">
                 <span>Subscribe</span>
               </button>         
             </div>
           </div>
-
+   
+          <notification type="success" v-show="subscribeMessage" @close="subscribeMessage = null"> 
+            {{ subscribeMessage }} 
+          </notification>
+          <notification type="danger" v-show="subscribeError" @close="subscribeError = null"> 
+            {{ subscribeError }} 
+          </notification>
+          
           <social-media-links></social-media-links>
 
           <ul class="nav-buttons is-inline-flex">
@@ -59,16 +80,20 @@
 <script>
 import SocialLinks from '@/components/elements/SocialLinks'
 import SubscribeForm from '@/helpers/SubscribeForm'
+import Notification from '@/components/elements/Notification'
 
 export default {
   name: 'HelloWorld',
   components: {
-    'social-media-links': SocialLinks
+    'social-media-links': SocialLinks,
+    'notification': Notification
   },
   data () {
     return {
       name: '',
-      email: ''
+      email: '',
+      subscribeMessage: null,
+      subscribeError: null
     }
   },
   methods: {
@@ -79,8 +104,19 @@ export default {
     addSubscriber () {
       SubscribeForm.hasSubscriber(this.email).then(() => {
         SubscribeForm.addSubscriber({name: this.name, email: this.email})
+        .then((success) => {
+          this.subscribeMessage = success
+        })
       }).catch((error) => {
-        console.log(error)
+        this.subscribeError = error.message
+      })
+    },
+
+    validateBefore (callback) {
+      this.$validator.validateAll().then((result) => {
+        if (result) {
+          callback()
+        }
       })
     }
   }
@@ -116,8 +152,6 @@ export default {
    height: 100vh;
    padding-top: 20vh;
   }
-
-
 
   .form{
     width: 50vw;

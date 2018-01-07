@@ -12,7 +12,7 @@ SubscribeForm.prototype.hasSubscriber = function (email) {
         return true
       }
     })
-    return hasMatchingEmail ? Promise.reject(new Error('Email is already subscribed')) : Promise.resolve('clear')
+    return hasMatchingEmail ? Promise.reject(new Error('This email is already subscribed!')) : Promise.resolve('clear')
   })
 }
 
@@ -24,9 +24,10 @@ SubscribeForm.prototype.addSubscriber = function (subscriber) {
     email: subscriber.email
   })
   .then(() => {
-    console.log('Thanks for subscribing!')
+    return Promise.resolve('Thanks for subscribing!')
   })
   .catch((error) => {
+    // permission denied error
     console.log(error)
   })
 }

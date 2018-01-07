@@ -4,8 +4,11 @@ import router from './router'
 // eslint-disable-next-line
 import bulma from 'bulma'
 import firebase from 'firebase'
+import VeeValidate from 'vee-validate'
 
 Vue.config.productionTip = false
+
+Vue.use(VeeValidate)
 
 // Initialize Firebase
 var config = {
